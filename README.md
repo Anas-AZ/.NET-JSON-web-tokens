@@ -32,7 +32,7 @@ private void CreatePasswordHash(string password, out byte[] passwordHash, out by
             using(var hmac = new HMACSHA512())
             {
                 passwordSalt = hmac.Key;
-                passwordHash =        hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
 
             }
         }
@@ -49,7 +49,6 @@ private void CreatePasswordHash(string password, out byte[] passwordHash, out by
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
                 return computedHash.SequenceEqual(passwordHash);
             }
-
         }
 ```
 
